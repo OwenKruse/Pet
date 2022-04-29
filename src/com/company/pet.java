@@ -1,6 +1,7 @@
 package com.company;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class pet{
     private String name;
@@ -64,7 +65,12 @@ public class pet{
 
     public int getAge() {
         LocalDate today = LocalDate.now();
-        return today.getYear() - birthDate.getYear();
+        // Period between today and birthdate
+        Period period = Period.between(birthDate, today);
+        return period.getYears();
+
+
+
     }
     public boolean isNeedsRestraint() {
 
